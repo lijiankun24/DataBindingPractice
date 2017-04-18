@@ -7,43 +7,86 @@
 
         <variable
             name="course"
-            type="com.lijiankun24.databindingpractice.model.Course"/>
+            type="com.lijiankun24.databindingpractice.main.Course"/>
+
+        <variable
+            name="handler"
+            type="com.lijiankun24.databindingpractice.main.MainClickHandlers"/>
+
+        <variable
+            name="mainPresenter"
+            type="com.lijiankun24.databindingpractice.main.MainPresenter"/>
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context="com.lijiankun24.databindingpractice.activity.MainActivity">
+        tools:context="com.lijiankun24.databindingpractice.main.MainActivity">
 
-        <TextView
-            android:id="@+id/tv_name"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:text="@{course.name}"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"/>
+        <include
+            android:id="@+id/include_toolbar"
+            layout="@layout/view_toolbar"/>
 
-        <TextView
-            android:id="@+id/tv_time"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:text="@{course.time}"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"/>
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_teacher"
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:onClick="@{handler::onNameClick}"
+                android:text="@{course.name}"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:onClick="@{handler::onTimeClick}"
+                android:text="@{course.time}"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/tv_teacher"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:onClick="@{handler::onTeacherClick}"
+                android:text="@{course.teacher}"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"/>
+        </LinearLayout>
+
+        <View
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:text="@{course.teacher}"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"/>
+            android:layout_height="10dp"
+            android:background="@android:color/darker_gray"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_save"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:onClick="@{(view) -> mainPresenter.saveCourse(view, course)}"
+                android:text="@string/save"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"/>
+        </LinearLayout>
     </LinearLayout>
 </layout>

@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">DataBindingPractice</string>
+
+    <!-- MainActivity begin -->
+    <string name="name">课程名称</string>
+    <string name="time">上课时间</string>
+    <string name="teacher">授课老师</string>
+
+    <string name="save">保存</string>
+    <!-- MainActivity end -->
 </resources>
