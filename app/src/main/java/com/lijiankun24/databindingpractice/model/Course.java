@@ -1,4 +1,4 @@
-package com.lijiankun24.databindingpractice.main;
+package com.lijiankun24.databindingpractice.model;
 
 /**
  * Course.java
@@ -13,7 +13,7 @@ public class Course {
 
     public final String teacher;
 
-    Course(String name, String time, String teacher) {
+    public Course(String name, String time, String teacher) {
         this.name = name;
         this.time = time;
         this.teacher = teacher;

@@ -1,4 +1,4 @@
-package com.lijiankun24.databindingpractice;
+package com.lijiankun24.databindingpractice.base;
 
 /**
  * BasePresenter.java

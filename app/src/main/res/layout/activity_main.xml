@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bing="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
+        <import type="android.view.View"/>
+
         <variable
             name="course"
-            type="com.lijiankun24.databindingpractice.main.Course"/>
+            type="com.lijiankun24.databindingpractice.model.Course"/>
+
+        <variable
+            name="user"
+            type="com.lijiankun24.databindingpractice.model.User"/>
 
         <variable
             name="handler"
@@ -20,7 +27,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         tools:context="com.lijiankun24.databindingpractice.main.MainActivity">
 
@@ -28,65 +35,94 @@
             android:id="@+id/include_toolbar"
             layout="@layout/view_toolbar"/>
 
-        <LinearLayout
+        <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:scrollbars="none">
 
-            <TextView
-                android:id="@+id/tv_name"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:onClick="@{handler::onNameClick}"
-                android:text="@{course.name}"
-                android:textColor="@android:color/black"
-                android:textSize="16sp"/>
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tv_time"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:onClick="@{handler::onTimeClick}"
-                android:text="@{course.time}"
-                android:textColor="@android:color/black"
-                android:textSize="16sp"/>
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:gravity="center"
+                    android:onClick="@{handler::onNameClick}"
+                    android:text="@{course.name}"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"/>
 
-            <TextView
-                android:id="@+id/tv_teacher"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:onClick="@{handler::onTeacherClick}"
-                android:text="@{course.teacher}"
-                android:textColor="@android:color/black"
-                android:textSize="16sp"/>
-        </LinearLayout>
+                <View style="@style/LineStyle"/>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:background="@android:color/darker_gray"/>
+                <TextView
+                    android:id="@+id/tv_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:gravity="center"
+                    android:onClick="@{handler::onTimeClick}"
+                    android:text="@{course.time}"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+                <View style="@style/LineStyle"/>
 
-            <TextView
-                android:id="@+id/tv_save"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:onClick="@{(view) -> mainPresenter.saveCourse(view, course)}"
-                android:text="@string/save"
-                android:textColor="@android:color/black"
-                android:textSize="16sp"/>
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/tv_teacher"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:gravity="center"
+                    android:onClick="@{handler::onTeacherClick}"
+                    android:text="@{course.teacher}"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"/>
+
+                <View style="@style/LineStyle"/>
+
+                <TextView
+                    android:id="@+id/tv_save"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:gravity="center"
+                    android:onClick="@{(view) -> mainPresenter.saveCourse(view, course)}"
+                    android:text="@string/save"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"/>
+
+                <View style="@style/LineStyle"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/checkbox"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:checked="@{user.isAdult}"
+                        android:onCheckedChanged="@{(button, b) -> mainPresenter.changeUserIsAdult(context, user,  b)}"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@android:color/holo_blue_light"
+                        android:gravity="center"
+                        android:text="@string/observable"
+                        android:textColor="@android:color/black"
+                        android:visibility="@{user.isAdult ? View.VISIBLE : View.INVISIBLE}"/>
+
+                </LinearLayout>
+
+                <View style="@style/LineStyle"/>
+
+                <include
+                    layout="@layout/view_include"
+                    bing:user="@{user}"/>
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
     </LinearLayout>
 </layout>

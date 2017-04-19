@@ -1,8 +1,13 @@
 package com.lijiankun24.databindingpractice.main;
 
+import android.content.Context;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.lijiankun24.databindingpractice.model.Course;
+import com.lijiankun24.databindingpractice.model.User;
 
 /**
  * MainPresenter.java
@@ -23,5 +28,12 @@ public class MainPresenter implements MainContract.MainPresenter {
         if (view instanceof TextView) {
             Log.i("lijk", "text is " + ((TextView) view).getText());
         }
+    }
+
+    @Override
+    public void changeUserIsAdult(Context context, User user, boolean isAdult) {
+        user.isAdult.set(isAdult);
+        Toast.makeText(context, "TextView " + (isAdult ? "visible" : "invisible"),
+                Toast.LENGTH_SHORT).show();
     }
 }

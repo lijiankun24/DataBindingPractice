@@ -7,5 +7,9 @@
     <string name="teacher">授课老师</string>
 
     <string name="save">保存</string>
+
+    <string name="observable">Observable 类的使用</string>
+
+    <string name="include">include 标签在DataBinding中的使用</string>
     <!-- MainActivity end -->
 </resources>
