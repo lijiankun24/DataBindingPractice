@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:bing="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -15,6 +15,10 @@
         <variable
             name="user"
             type="com.lijiankun24.databindingpractice.model.User"/>
+
+        <variable
+            name="observableTeacher"
+            type="com.lijiankun24.databindingpractice.model.ObservableTeacher"/>
 
         <variable
             name="handler"
@@ -117,11 +121,13 @@
 
                 </LinearLayout>
 
-                <View style="@style/LineStyle"/>
-
                 <include
                     layout="@layout/view_include"
-                    bing:user="@{user}"/>
+                    bind:user="@{user}"/>
+
+                <include
+                    layout="@layout/view_include1"
+                    bind:observableTeacher="@{observableTeacher}"/>
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
     </LinearLayout>

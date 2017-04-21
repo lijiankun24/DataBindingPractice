@@ -17,6 +17,8 @@
         android:background="@android:color/holo_orange_light"
         android:orientation="vertical">
 
+        <View style="@style/LineStyle"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="48dp"
@@ -29,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:gravity="center"
-            android:text="@{user.name}"/>
+            android:text="@{String.format(@string/include_name, user.name)}"/>
 
         <View style="@style/LineStyle"/>
 
@@ -37,8 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:gravity="center"
-            android:text="@{String.valueOf(user.age)}"/>
+            android:text="@{String.format(@string/include_age, user.age)}"/>
 
-        <View style="@style/LineStyle"/>
     </LinearLayout>
 </layout>

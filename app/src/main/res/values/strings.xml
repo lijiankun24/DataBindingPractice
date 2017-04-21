@@ -10,6 +10,15 @@
 
     <string name="observable">Observable 类的使用</string>
 
-    <string name="include">include 标签在DataBinding中的使用</string>
+    <string name="include">include 标签在 DataBinding 中的使用</string>
+    <string name="include_name">Users name is %s</string>
+    <string name="include_age">Users age is %s</string>
+
+
+    <string name="include1">Observable Objects 在 DataBinding 中的使用</string>
+    <string name="include_input_name">input teachers name, please</string>
+    <string name="include_input_age">input teachers age, please</string>
+    <string name="include_observable_name">ObservableTeachers name is %s</string>
+    <string name="include_observable_age">ObservableTeachers age is %s</string>
     <!-- MainActivity end -->
 </resources>
