@@ -2,6 +2,8 @@
     <string name="app_name">DataBindingPractice</string>
 
     <!-- MainActivity begin -->
+    <string name="to_observable_activity">前往 ObservableActivity</string>
+    <string name="to_rv_activity">前往 RecyclerViewActivity</string>
     <string name="name">课程名称</string>
     <string name="time">上课时间</string>
     <string name="teacher">授课老师</string>

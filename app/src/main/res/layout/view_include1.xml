@@ -6,7 +6,7 @@
 
         <variable
             name="observableTeacher"
-            type="com.lijiankun24.databindingpractice.model.ObservableTeacher"/>
+            type="com.lijiankun24.databindingpractice.common.model.ObservableTeacher"/>
 
         <import type="java.lang.String"/>
 

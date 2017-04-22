@@ -1,4 +1,4 @@
-package com.lijiankun24.databindingpractice.model;
+package com.lijiankun24.databindingpractice.common.model;
 
 /**
  * Course.java

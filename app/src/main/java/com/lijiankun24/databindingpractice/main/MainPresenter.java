@@ -1,13 +1,16 @@
 package com.lijiankun24.databindingpractice.main;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.lijiankun24.databindingpractice.model.Course;
-import com.lijiankun24.databindingpractice.model.User;
+import com.lijiankun24.databindingpractice.common.model.Course;
+import com.lijiankun24.databindingpractice.common.model.Student;
+import com.lijiankun24.databindingpractice.observable.ObservableActivity;
+import com.lijiankun24.databindingpractice.recyclerview.RecyclerViewActivity;
 
 /**
  * MainPresenter.java
@@ -16,6 +19,16 @@ import com.lijiankun24.databindingpractice.model.User;
  */
 
 public class MainPresenter implements MainContract.MainPresenter {
+
+    @Override
+    public void toObservableActivity(Context context) {
+        context.startActivity(new Intent(context, ObservableActivity.class));
+    }
+
+    @Override
+    public void toRecyclerViewActivity(Context context) {
+        context.startActivity(new Intent(context, RecyclerViewActivity.class));
+    }
 
     @Override
     public void saveCourse(View view, Course course) {
@@ -31,8 +44,8 @@ public class MainPresenter implements MainContract.MainPresenter {
     }
 
     @Override
-    public void changeUserIsAdult(Context context, User user, boolean isAdult) {
-        user.isAdult.set(isAdult);
+    public void changeUserIsAdult(Context context, Student student, boolean isAdult) {
+        student.isAdult.set(isAdult);
         Toast.makeText(context, "TextView " + (isAdult ? "visible" : "invisible"),
                 Toast.LENGTH_SHORT).show();
     }

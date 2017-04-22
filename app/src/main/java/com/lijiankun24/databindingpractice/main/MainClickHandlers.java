@@ -1,10 +1,13 @@
 package com.lijiankun24.databindingpractice.main;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.Toast;
 
 import com.lijiankun24.databindingpractice.R;
+import com.lijiankun24.databindingpractice.observable.ObservableActivity;
 
 /**
  * MainClickHandlers.java

@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="user"
-            type="com.lijiankun24.databindingpractice.model.User"/>
+            name="student"
+            type="com.lijiankun24.databindingpractice.common.model.Student"/>
 
         <import type="java.lang.String"/>
     </data>
@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:gravity="center"
-            android:text="@{String.format(@string/include_name, user.name)}"/>
+            android:text="@{String.format(@string/include_name, student.name)}"/>
 
         <View style="@style/LineStyle"/>
 
@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:gravity="center"
-            android:text="@{String.format(@string/include_age, user.age)}"/>
+            android:text="@{String.format(@string/include_age, student.age)}"/>
 
     </LinearLayout>
 </layout>

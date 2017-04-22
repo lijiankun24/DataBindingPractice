@@ -2,7 +2,8 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:bind="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.lijiankun24.databindingpractice.main.MainActivity">
 
     <data>
 
@@ -10,15 +11,15 @@
 
         <variable
             name="course"
-            type="com.lijiankun24.databindingpractice.model.Course"/>
+            type="com.lijiankun24.databindingpractice.common.model.Course"/>
 
         <variable
-            name="user"
-            type="com.lijiankun24.databindingpractice.model.User"/>
+            name="student"
+            type="com.lijiankun24.databindingpractice.common.model.Student"/>
 
         <variable
             name="observableTeacher"
-            type="com.lijiankun24.databindingpractice.model.ObservableTeacher"/>
+            type="com.lijiankun24.databindingpractice.common.model.ObservableTeacher"/>
 
         <variable
             name="handler"
@@ -32,8 +33,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:context="com.lijiankun24.databindingpractice.main.MainActivity">
+        android:orientation="vertical">
 
         <include
             android:id="@+id/include_toolbar"
@@ -48,6 +48,34 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btn_to_observable"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@android:color/holo_red_light"
+                    android:gravity="center"
+                    android:onClick="@{() -> mainPresenter.toObservableActivity(context)}"
+                    android:text="@{@string/to_observable_activity}"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"/>
+
+                <View style="@style/LineStyle"/>
+
+                <Button
+                    android:id="@+id/btn_to_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@android:color/holo_red_light"
+                    android:gravity="center"
+                    android:onClick="@{() -> mainPresenter.toRecyclerViewActivity(context)}"
+                    android:text="@{@string/to_rv_activity}"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"/>
+
+                <View style="@style/LineStyle"/>
 
                 <TextView
                     android:id="@+id/tv_name"
@@ -106,8 +134,8 @@
                         android:id="@+id/checkbox"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
-                        android:checked="@{user.isAdult}"
-                        android:onCheckedChanged="@{(button, b) -> mainPresenter.changeUserIsAdult(context, user,  b)}"/>
+                        android:checked="@{student.isAdult}"
+                        android:onCheckedChanged="@{(button, b) -> mainPresenter.changeUserIsAdult(context, student,  b)}"/>
 
                     <TextView
                         android:layout_width="match_parent"
@@ -117,13 +145,13 @@
                         android:gravity="center"
                         android:text="@string/observable"
                         android:textColor="@android:color/black"
-                        android:visibility="@{user.isAdult ? View.VISIBLE : View.INVISIBLE}"/>
+                        android:visibility="@{student.isAdult ? View.VISIBLE : View.INVISIBLE}"/>
 
                 </LinearLayout>
 
                 <include
                     layout="@layout/view_include"
-                    bind:user="@{user}"/>
+                    bind:student="@{student}"/>
 
                 <include
                     layout="@layout/view_include1"
