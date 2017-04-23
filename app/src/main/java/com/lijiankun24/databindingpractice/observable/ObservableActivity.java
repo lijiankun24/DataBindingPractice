@@ -1,6 +1,7 @@
 package com.lijiankun24.databindingpractice.observable;
 
 import android.databinding.ViewDataBinding;
+import android.view.MenuItem;
 
 import com.lijiankun24.databindingpractice.R;
 import com.lijiankun24.databindingpractice.common.base.BaseActivity;
@@ -23,7 +24,21 @@ public class ObservableActivity extends BaseActivity {
         }
     }
 
-    private void initView() {
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                ObservableActivity.this.finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
+    private void initView() {
+        setSupportActionBar(mBinding.includeToolbar.toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle(R.string.observable_activity_title);
+        }
     }
 }

@@ -2,8 +2,8 @@
     <string name="app_name">DataBindingPractice</string>
 
     <!-- MainActivity begin -->
-    <string name="to_observable_activity">前往 ObservableActivity</string>
-    <string name="to_rv_activity">前往 RecyclerViewActivity</string>
+    <string name="to_observable_activity">Click to ObservableActivity</string>
+    <string name="to_rv_activity">Click to RecyclerViewActivity</string>
     <string name="name">课程名称</string>
     <string name="time">上课时间</string>
     <string name="teacher">授课老师</string>
@@ -23,4 +23,12 @@
     <string name="include_observable_name">ObservableTeachers name is %s</string>
     <string name="include_observable_age">ObservableTeachers age is %s</string>
     <!-- MainActivity end -->
+
+    <!-- ObservableActivity begin -->
+    <string name="observable_activity_title">Observable</string>
+    <!-- ObservableActivity end -->
+
+    <!-- RecyclerViewActivity begin -->
+    <string name="recyclerview_activity_title">RecyclerView</string>
+    <!-- RecyclerViewActivity end -->
 </resources>
