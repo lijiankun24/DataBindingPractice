@@ -1,15 +1,24 @@
 package com.lijiankun24.databindingpractice.observable;
 
+import android.databinding.ObservableArrayList;
 import android.databinding.ViewDataBinding;
 import android.view.MenuItem;
 
 import com.lijiankun24.databindingpractice.R;
 import com.lijiankun24.databindingpractice.common.base.BaseActivity;
+import com.lijiankun24.databindingpractice.common.model.Student;
 import com.lijiankun24.databindingpractice.databinding.ActivityObservableBinding;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ObservableActivity extends BaseActivity {
 
     private ActivityObservableBinding mBinding = null;
+
+    private List<String> mStrinigList = null;
+
+    private ObservableArrayList<Student> mStudentList = null;
 
     @Override
     protected int getLayoutId() {
@@ -21,7 +30,29 @@ public class ObservableActivity extends BaseActivity {
         if (binding instanceof ActivityObservableBinding) {
             mBinding = (ActivityObservableBinding) binding;
             initView();
+            initDataBindingParams();
         }
+    }
+
+    private void initDataBindingParams() {
+        setUpData();
+        mBinding.setObservablePresenter(new ObservablePresenter());
+        if (mStrinigList != null) {
+            mBinding.setNameList(mStrinigList);
+        }
+        if (mStudentList != null) {
+            mBinding.setStudentList(mStudentList);
+        }
+    }
+
+    private void setUpData() {
+        mStrinigList = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            mStrinigList.add("Mr " + i);
+        }
+
+        mStudentList = new ObservableArrayList<>();
+        mStudentList.add(new Student("Num 0", 0, "" + 0, false));
     }
 
     @Override

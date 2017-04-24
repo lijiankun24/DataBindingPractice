@@ -26,6 +26,9 @@
 
     <!-- ObservableActivity begin -->
     <string name="observable_activity_title">Observable</string>
+    <string name="observable_click">Click to change text</string>
+    <string name="observable_list1">%1$d students name is %2$s</string>
+    <string name="observable_list2">students name is %1$s students age is %2$d</string>
     <!-- ObservableActivity end -->
 
     <!-- RecyclerViewActivity begin -->

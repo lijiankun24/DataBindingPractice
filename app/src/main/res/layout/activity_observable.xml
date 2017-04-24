@@ -3,13 +3,56 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <import type="java.util.List"/>
+
+        <import type="android.databinding.ObservableArrayList"/>
+
+        <import type="java.lang.String"/>
+
+        <import type="com.lijiankun24.databindingpractice.common.model.Student"/>
+
+        <variable
+            name="nameList"
+            type="List&lt;String>"/>
+
+        <variable
+            name="studentList"
+            type="ObservableArrayList&lt;Student>"/>
+
+        <variable
+            name="observablePresenter"
+            type="com.lijiankun24.databindingpractice.observable.ObservablePresenter"/>
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:context="com.lijiankun24.databindingpractice.observable.ObservableActivity">
 
         <include
             android:id="@+id/include_toolbar"
             layout="@layout/view_toolbar"/>
+
+        <TextView
+            android:id="@+id/tv_list"
+            style="@style/TextViewStyle"
+            android:background="@android:color/holo_green_light"
+            android:hint="@string/observable_click"
+            android:onClick="@{(view) -> observablePresenter.changeText(view, nameList)}"/>
+
+        <View style="@style/LineStyle"/>
+
+        <TextView
+            android:id="@+id/tv_string"
+            style="@style/TextViewStyle"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_green_light"
+            android:hint="@string/observable_click"
+            android:onClick="@{(view) -> observablePresenter.changeText(studentList)}"
+            android:text="@{String.format(@string/observable_list2, studentList.get(0).name, studentList.get(0).age)}"/>
+
     </LinearLayout>
 </layout>
