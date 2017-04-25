@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -8,6 +9,8 @@
         <import type="java.util.List"/>
 
         <import type="android.databinding.ObservableArrayList"/>
+
+        <import type="android.databinding.ObservableField"/>
 
         <import type="java.lang.String"/>
 
@@ -22,8 +25,16 @@
             type="ObservableArrayList&lt;Student>"/>
 
         <variable
+            name="observableText"
+            type="ObservableField&lt;String>"/>
+
+        <variable
             name="observablePresenter"
             type="com.lijiankun24.databindingpractice.observable.ObservablePresenter"/>
+
+        <variable
+            name="observableTeacher"
+            type="com.lijiankun24.databindingpractice.common.model.ObservableTeacher"/>
     </data>
 
     <LinearLayout
@@ -39,8 +50,8 @@
         <TextView
             android:id="@+id/tv_list"
             style="@style/TextViewStyle"
-            android:background="@android:color/holo_green_light"
             android:hint="@string/observable_click"
+            android:background="@android:color/holo_green_light"
             android:onClick="@{(view) -> observablePresenter.changeText(view, nameList)}"/>
 
         <View style="@style/LineStyle"/>
@@ -48,11 +59,32 @@
         <TextView
             android:id="@+id/tv_string"
             style="@style/TextViewStyle"
-            android:layout_height="wrap_content"
-            android:background="@android:color/holo_green_light"
             android:hint="@string/observable_click"
+            android:background="@android:color/holo_green_light"
             android:onClick="@{(view) -> observablePresenter.changeText(studentList)}"
             android:text="@{String.format(@string/observable_list2, studentList.get(0).name, studentList.get(0).age)}"/>
+
+        <View style="@style/LineStyle"/>
+
+        <EditText
+            android:id="@+id/et_text"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@android:color/holo_green_light"
+            android:hint="@string/include_input_name"/>
+
+        <View style="@style/LineStyle"/>
+
+        <TextView
+            android:id="@+id/tv_text"
+            style="@style/TextViewStyle"
+            android:background="@android:color/holo_green_light"
+            android:text="@{String.format(@string/observable_teacher_name,observableText.get())}"/>
+
+        <include
+            android:id="@+id/include_view1"
+            layout="@layout/view_include1"
+            bind:observableTeacher="@{observableTeacher}"/>
 
     </LinearLayout>
 </layout>

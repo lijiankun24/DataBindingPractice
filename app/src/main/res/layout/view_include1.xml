@@ -16,8 +16,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/holo_green_light"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@android:color/holo_orange_light">
 
         <View style="@style/LineStyle"/>
 
@@ -30,6 +30,7 @@
         <View style="@style/LineStyle"/>
 
         <EditText
+            android:id="@+id/et_name"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:hint="@string/include_input_name"
@@ -38,6 +39,7 @@
         <View style="@style/LineStyle"/>
 
         <EditText
+            android:id="@+id/et_age"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:hint="@string/include_input_age"

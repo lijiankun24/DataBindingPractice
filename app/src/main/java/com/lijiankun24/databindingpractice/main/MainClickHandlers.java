@@ -1,13 +1,12 @@
 package com.lijiankun24.databindingpractice.main;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.view.View;
 import android.widget.Toast;
 
 import com.lijiankun24.databindingpractice.R;
-import com.lijiankun24.databindingpractice.observable.ObservableActivity;
+
+import java.lang.ref.WeakReference;
 
 /**
  * MainClickHandlers.java
@@ -17,10 +16,12 @@ import com.lijiankun24.databindingpractice.observable.ObservableActivity;
 
 public class MainClickHandlers {
 
-    private Activity mActivity;
+    private WeakReference<Activity> mActivityWR = null;
 
     public MainClickHandlers(Activity activity) {
-        mActivity = activity;
+        if (mActivityWR == null || mActivityWR.get() == null) {
+            mActivityWR = new WeakReference<>(activity);
+        }
     }
 
     public void onNameClick(View v) {
@@ -36,9 +37,9 @@ public class MainClickHandlers {
     }
 
     private void Toaster(int resInt) {
-        if (mActivity == null) {
+        if (mActivityWR == null || mActivityWR.get() == null) {
             return;
         }
-        Toast.makeText(mActivity, resInt, Toast.LENGTH_SHORT).show();
+        Toast.makeText(mActivityWR.get(), resInt, Toast.LENGTH_SHORT).show();
     }
 }

@@ -1,13 +1,10 @@
 package com.lijiankun24.databindingpractice.observable;
 
-import android.content.Context;
 import android.databinding.ObservableArrayList;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import com.lijiankun24.databindingpractice.R;
-import com.lijiankun24.databindingpractice.common.model.ObservableTeacher;
 import com.lijiankun24.databindingpractice.common.model.Student;
 
 import java.util.List;
@@ -22,11 +19,7 @@ public class ObservablePresenter implements ObservableContract.ObservablePresent
 
     private int index = -1;
 
-    private int studentNum = 0;
-
-    @Override
-    public void changeTeacher(Context context, ObservableTeacher teacher) {
-    }
+    private int studentNum = 1;
 
     @Override
     public void changeText(View view, List<String> stringList) {
@@ -43,17 +36,7 @@ public class ObservablePresenter implements ObservableContract.ObservablePresent
 
     @Override
     public void changeText(ObservableArrayList<Student> studentObservableList) {
-        studentObservableList.add(new Student("Num " + studentNum, studentNum, "PhoneNum " + studentNum, false));
+        studentObservableList.add(0, new Student("Num " + studentNum, studentNum, "PhoneNum " + studentNum, false));
         studentNum++;
-    }
-
-    @Override
-    public void changeText(View view, String text) {
-        Log.i("lijk", " === outer ");
-        if (view instanceof TextView) {
-            Log.i("lijk", " === inner " + text);
-            TextView textView = ((TextView) view);
-            textView.setText(text);
-        }
     }
 }
