@@ -2,6 +2,7 @@
     <string name="app_name">DataBindingPractice</string>
 
     <!-- MainActivity begin -->
+    <string name="to_layout_activity">Click to LayoutActivity</string>
     <string name="to_observable_activity">Click to ObservableActivity</string>
     <string name="to_rv_activity">Click to RecyclerViewActivity</string>
     <string name="name">课程名称</string>
@@ -23,6 +24,10 @@
     <string name="include_observable_name">ObservableTeachers name is %s</string>
     <string name="include_observable_age">ObservableTeachers age is %s</string>
     <!-- MainActivity end -->
+
+    <!-- LayoutActivity begin -->
+    <string name="layout_activity_title">Layout</string>
+    <!-- LayoutActivity begin -->
 
     <!-- ObservableActivity begin -->
     <string name="observable_activity_title">Observable</string>

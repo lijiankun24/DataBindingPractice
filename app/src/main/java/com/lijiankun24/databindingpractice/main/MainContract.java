@@ -21,6 +21,8 @@ interface MainContract {
 
         void changeUserIsAdult(Context context, Student student, boolean isAdult);
 
+        void toLayoutActivity(Context context);
+
         void toObservableActivity(Context context);
 
         void toRecyclerViewActivity(Context context);

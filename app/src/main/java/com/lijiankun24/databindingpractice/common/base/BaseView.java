@@ -8,5 +8,7 @@ package com.lijiankun24.databindingpractice.common.base;
 
 public interface BaseView<T> {
 
+    void initView();
+
     void setPresenter(T presenter);
 }

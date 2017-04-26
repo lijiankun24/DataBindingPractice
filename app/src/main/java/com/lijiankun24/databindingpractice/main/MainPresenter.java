@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.lijiankun24.databindingpractice.common.model.Course;
 import com.lijiankun24.databindingpractice.common.model.Student;
+import com.lijiankun24.databindingpractice.layout.LayoutActivity;
 import com.lijiankun24.databindingpractice.observable.ObservableActivity;
 import com.lijiankun24.databindingpractice.recyclerview.RecyclerViewActivity;
 
@@ -19,6 +20,11 @@ import com.lijiankun24.databindingpractice.recyclerview.RecyclerViewActivity;
  */
 
 public class MainPresenter implements MainContract.MainPresenter {
+
+    @Override
+    public void toLayoutActivity(Context context) {
+        context.startActivity(new Intent(context, LayoutActivity.class));
+    }
 
     @Override
     public void toObservableActivity(Context context) {

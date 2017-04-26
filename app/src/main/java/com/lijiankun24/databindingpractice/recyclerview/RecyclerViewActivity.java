@@ -56,7 +56,8 @@ public class RecyclerViewActivity extends BaseActivity implements RecyclerViewCo
         presenter.loadDatas();
     }
 
-    private void initView() {
+    @Override
+    public void initView() {
         setSupportActionBar(mBinding.includeToolbar.toolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);

@@ -2,7 +2,7 @@ package com.lijiankun24.databindingpractice.recyclerview;
 
 import android.databinding.BindingAdapter;
 import android.graphics.drawable.Drawable;
-import android.util.Log;
+import android.text.TextUtils;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -15,12 +15,14 @@ import com.bumptech.glide.Glide;
 
 public class ImageViewAttrAdapter {
 
-    @BindingAdapter({"imageUrl", "placeHolder", "error"})
-    public static void loadImage(ImageView imageView, String url, Drawable holderDrawable, Drawable errorDrawable) {
-        Log.i("lijk", "loadImage url is " + url);
+    @BindingAdapter({"imageUrl", "error"})
+    public static void loadImage(ImageView imageView, String url, Drawable error) {
+        if (imageView == null || TextUtils.isEmpty(url)) {
+            return;
+        }
         Glide.with(imageView.getContext())
                 .load(url)
-                .error(errorDrawable)
+                .error(error)
                 .centerCrop()
                 .into(imageView);
     }

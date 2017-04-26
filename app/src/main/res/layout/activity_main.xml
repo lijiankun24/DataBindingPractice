@@ -46,6 +46,20 @@
                 android:orientation="vertical">
 
                 <Button
+                    android:id="@+id/btn_to_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@android:color/holo_red_light"
+                    android:gravity="center"
+                    android:onClick="@{() -> mainPresenter.toLayoutActivity(context)}"
+                    android:text="@{@string/to_layout_activity}"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"/>
+
+                <View style="@style/LineStyle"/>
+
+                <Button
                     android:id="@+id/btn_to_observable"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"

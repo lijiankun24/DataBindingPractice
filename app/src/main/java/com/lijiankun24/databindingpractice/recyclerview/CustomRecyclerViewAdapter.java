@@ -22,13 +22,10 @@ class CustomRecyclerViewAdapter extends RecyclerView.Adapter<CustomRecyclerViewA
 
     private LayoutInflater mInflater = null;
 
-    private Context mContext = null;
-
     private List<Girl> mGirls = null;
 
     CustomRecyclerViewAdapter(Context context) {
         mInflater = LayoutInflater.from(context);
-        mContext = context;
     }
 
     void setGirls(List<Girl> girls) {
@@ -61,7 +58,7 @@ class CustomRecyclerViewAdapter extends RecyclerView.Adapter<CustomRecyclerViewA
             mGirlBinding = (ItemGirlBinding) binding;
         }
 
-        ItemGirlBinding getGirlBinding() {
+        ViewDataBinding getGirlBinding() {
             return mGirlBinding;
         }
     }
