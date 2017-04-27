@@ -5,7 +5,6 @@ import android.databinding.ObservableField;
 import android.databinding.ViewDataBinding;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.MenuItem;
 
 import com.lijiankun24.databindingpractice.R;
 import com.lijiankun24.databindingpractice.common.base.BaseActivity;
@@ -98,16 +97,6 @@ public class ObservableActivity extends BaseActivity {
                 mObservableText.set(editable.toString());
             }
         });
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                ObservableActivity.this.finish();
-                break;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     private class MyAction implements TextWatcher {

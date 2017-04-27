@@ -2,8 +2,6 @@ package com.lijiankun24.databindingpractice.recyclerview;
 
 import android.databinding.ViewDataBinding;
 import android.support.v7.widget.LinearLayoutManager;
-import android.util.Log;
-import android.view.MenuItem;
 
 import com.lijiankun24.databindingpractice.R;
 import com.lijiankun24.databindingpractice.common.base.BaseActivity;
@@ -41,7 +39,6 @@ public class RecyclerViewActivity extends BaseActivity implements RecyclerViewCo
 
     @Override
     public void showDatas(List<Girl> girls) {
-        Log.i("lijk", "girls.size ====== " + girls.size());
         mAdapter.setGirls(girls);
     }
 
@@ -63,15 +60,5 @@ public class RecyclerViewActivity extends BaseActivity implements RecyclerViewCo
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setTitle(R.string.recyclerview_activity_title);
         }
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                RecyclerViewActivity.this.finish();
-                break;
-        }
-        return super.onOptionsItemSelected(item);
     }
 }

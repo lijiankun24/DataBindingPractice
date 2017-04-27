@@ -1,16 +1,20 @@
 package com.lijiankun24.databindingpractice.layout;
 
 import android.databinding.ViewDataBinding;
-import android.view.MenuItem;
 
 import com.lijiankun24.databindingpractice.R;
 import com.lijiankun24.databindingpractice.common.base.BaseActivity;
 import com.lijiankun24.databindingpractice.common.model.Course;
-import com.lijiankun24.databindingpractice.databinding.ActivityLayoutBinding;
+import com.lijiankun24.databindingpractice.common.model.Student;
+import com.lijiankun24.databindingpractice.common.util.Toaster;
+
+/**
+ * LayoutActivity.java
+ * <p>
+ * Created by lijiankun on 17/4/26.
+ */
 
 public class LayoutActivity extends BaseActivity implements LayoutContract.View {
-
-    private LayoutPresenter mPresenter = null;
 
     private ActivityLayoutBinding mBinding = null;
 
@@ -23,14 +27,32 @@ public class LayoutActivity extends BaseActivity implements LayoutContract.View 
     protected void initControls(ViewDataBinding binding) {
         if (binding instanceof ActivityLayoutBinding) {
             mBinding = (ActivityLayoutBinding) binding;
-            mPresenter = new LayoutPresenter(this);
+            LayoutPresenter mPresenter = new LayoutPresenter(this);
             mPresenter.loadCourse();
+            mPresenter.loadStudent();
         }
     }
 
     @Override
     public void showCourse(Course course) {
         mBinding.setCourse(course);
+    }
+
+    @Override
+    public void showStudent(Student student) {
+        mBinding.setStudent(student);
+    }
+
+    @Override
+    public void showMethodReferences(Course course) {
+        String msg = "Toast by method references \n the name of course is " + course.name;
+        Toaster.showShort(msg);
+    }
+
+    @Override
+    public void showListenerBindings(Course course) {
+        String msg = "Toast by listener bindings \n the time of course is " + course.time;
+        Toaster.showShort(msg);
     }
 
     @Override
@@ -44,15 +66,7 @@ public class LayoutActivity extends BaseActivity implements LayoutContract.View 
 
     @Override
     public void setPresenter(LayoutContract.Presenter presenter) {
+        mBinding.setLayoutPresenter(((LayoutPresenter) presenter));
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                LayoutActivity.this.finish();
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 }

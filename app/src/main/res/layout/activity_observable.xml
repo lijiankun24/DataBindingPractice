@@ -14,6 +14,8 @@
 
         <import type="java.lang.String"/>
 
+        <import type="android.view.View"/>
+
         <import type="com.lijiankun24.databindingpractice.common.model.Student"/>
 
         <variable
@@ -35,6 +37,10 @@
         <variable
             name="observableTeacher"
             type="com.lijiankun24.databindingpractice.common.model.ObservableTeacher"/>
+
+        <variable
+            name="student"
+            type="Student"/>
     </data>
 
     <LinearLayout
@@ -50,8 +56,8 @@
         <TextView
             android:id="@+id/tv_list"
             style="@style/TextViewStyle"
-            android:hint="@string/observable_click"
             android:background="@android:color/holo_green_light"
+            android:hint="@string/observable_click"
             android:onClick="@{(view) -> observablePresenter.changeText(view, nameList)}"/>
 
         <View style="@style/LineStyle"/>
@@ -59,8 +65,8 @@
         <TextView
             android:id="@+id/tv_string"
             style="@style/TextViewStyle"
-            android:hint="@string/observable_click"
             android:background="@android:color/holo_green_light"
+            android:hint="@string/observable_click"
             android:onClick="@{(view) -> observablePresenter.changeText(studentList)}"
             android:text="@{String.format(@string/observable_list2, studentList.get(0).name, studentList.get(0).age)}"/>
 
@@ -86,5 +92,28 @@
             layout="@layout/view_include1"
             bind:observableTeacher="@{observableTeacher}"/>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/checkbox"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:checked="@{student.isAdult}"/>
+            <!--android:onCheckedChanged="@{(button, b) -> mainPresenter.changeUserIsAdult(context, student,  b)}"/>-->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:background="@android:color/holo_blue_light"
+                android:gravity="center"
+                android:text="@string/observable"
+                android:textColor="@android:color/black"
+                android:visibility="@{student.isAdult ? View.VISIBLE : View.INVISIBLE}"/>
+
+        </LinearLayout>
     </LinearLayout>
 </layout>

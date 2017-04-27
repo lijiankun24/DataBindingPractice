@@ -5,19 +5,9 @@
     <string name="to_layout_activity">Click to LayoutActivity</string>
     <string name="to_observable_activity">Click to ObservableActivity</string>
     <string name="to_rv_activity">Click to RecyclerViewActivity</string>
-    <string name="name">课程名称</string>
-    <string name="time">上课时间</string>
-    <string name="teacher">授课老师</string>
 
-    <string name="save">保存</string>
 
     <string name="observable">Observable 类的使用</string>
-
-    <string name="include">include 标签在 DataBinding 中的使用</string>
-    <string name="include_name">Users name is %s</string>
-    <string name="include_age">Users age is %s</string>
-
-
     <string name="include1">Observable Objects 在 DataBinding 中的使用</string>
     <string name="include_input_name">Input teachers name, please</string>
     <string name="include_input_age">Input teachers age, please</string>
@@ -27,6 +17,23 @@
 
     <!-- LayoutActivity begin -->
     <string name="layout_activity_title">Layout</string>
+    <string name="layout_files_details">The following is about Layout: data binding expressions</string>
+    <string name="layout_course_name">The name of course is %1$s</string>
+    <string name="layout_course_time">The time of course is %1$s</string>
+    <string name="layout_course_teacher">The teacher of course is %1$s</string>
+    <string name="layout_method_references_title">The following is about Event Handling: method references</string>
+    <string name="layout_method_references">Method references: click to show</string>
+    <string name="layout_listener_bindings_title">The following is about Event Handling: listener bindings</string>
+    <string name="layout_listener_bindings">Listener bindings: click to show</string>
+    <string name="layout_include_title">The following is about include in DataBinding</string>
+    <string name="layout_include_name">Students name is %s</string>
+    <string name="layout_include_age">Students age is %s</string>
+    <string name="layout_other_title">The following is other， such as import、res</string>
+    <string name="layout_other_import">Import NetworkUtil: Click to show networkinfo</string>
+    <string name="layout_other_import1">Import android.view.View: Views visible and gone</string>
+    <string name="layout_other_res">Reference the strings res: %1$s and %2$d</string>
+    <string name="layout_other_res1">Reference the colors res</string>
+    <string name="layout_other_res2">Null 合并运算符</string>
     <!-- LayoutActivity begin -->
 
     <!-- ObservableActivity begin -->

@@ -4,6 +4,9 @@ import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
+
+import com.lijiankun24.databindingpractice.layout.LayoutActivity;
 
 /**
  * BaseActivity, getLayoutId and initControls is important.
@@ -26,4 +29,14 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected abstract int getLayoutId();
 
     protected abstract void initControls(ViewDataBinding binding);
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                BaseActivity.this.finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

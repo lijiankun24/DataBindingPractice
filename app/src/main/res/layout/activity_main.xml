@@ -1,25 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.lijiankun24.databindingpractice.main.MainActivity">
 
     <data>
-
-        <import type="android.view.View"/>
-
-        <variable
-            name="course"
-            type="com.lijiankun24.databindingpractice.common.model.Course"/>
-
-        <variable
-            name="student"
-            type="com.lijiankun24.databindingpractice.common.model.Student"/>
-
-        <variable
-            name="handler"
-            type="com.lijiankun24.databindingpractice.main.MainClickHandlers"/>
 
         <variable
             name="mainPresenter"
@@ -35,134 +20,33 @@
             android:id="@+id/include_toolbar"
             layout="@layout/view_toolbar"/>
 
-        <android.support.v4.widget.NestedScrollView
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars="none">
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+            <TextView
+                style="@style/TextViewStyle"
+                android:onClick="@{() -> mainPresenter.toLayoutActivity()}"
+                android:text="@{@string/to_layout_activity}"/>
 
-                <Button
-                    android:id="@+id/btn_to_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:background="@android:color/holo_red_light"
-                    android:gravity="center"
-                    android:onClick="@{() -> mainPresenter.toLayoutActivity(context)}"
-                    android:text="@{@string/to_layout_activity}"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp"/>
+            <View style="@style/LineStyle"/>
 
-                <View style="@style/LineStyle"/>
+            <TextView
+                style="@style/TextViewStyle"
+                android:onClick="@{() -> mainPresenter.toObservableActivity()}"
+                android:text="@{@string/to_observable_activity}"/>
 
-                <Button
-                    android:id="@+id/btn_to_observable"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:background="@android:color/holo_red_light"
-                    android:gravity="center"
-                    android:onClick="@{() -> mainPresenter.toObservableActivity(context)}"
-                    android:text="@{@string/to_observable_activity}"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp"/>
+            <View style="@style/LineStyle"/>
 
-                <View style="@style/LineStyle"/>
+            <TextView
+                style="@style/TextViewStyle"
+                android:onClick="@{() -> mainPresenter.toRecyclerViewActivity()}"
+                android:text="@{@string/to_rv_activity}"/>
 
-                <Button
-                    android:id="@+id/btn_to_rv"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:background="@android:color/holo_red_light"
-                    android:gravity="center"
-                    android:onClick="@{() -> mainPresenter.toRecyclerViewActivity(context)}"
-                    android:text="@{@string/to_rv_activity}"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp"/>
+            <View style="@style/LineStyle"/>
 
-                <View style="@style/LineStyle"/>
-
-                <TextView
-                    android:id="@+id/tv_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:gravity="center"
-                    android:onClick="@{handler::onNameClick}"
-                    android:text="@{course.name}"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp"/>
-
-                <View style="@style/LineStyle"/>
-
-                <TextView
-                    android:id="@+id/tv_time"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:gravity="center"
-                    android:onClick="@{handler::onTimeClick}"
-                    android:text="@{course.time}"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp"/>
-
-                <View style="@style/LineStyle"/>
-
-                <TextView
-                    android:id="@+id/tv_teacher"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:gravity="center"
-                    android:onClick="@{handler::onTeacherClick}"
-                    android:text="@{course.teacher}"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp"/>
-
-                <View style="@style/LineStyle"/>
-
-                <TextView
-                    android:id="@+id/tv_save"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:gravity="center"
-                    android:onClick="@{(view) -> mainPresenter.saveCourse(view, course)}"
-                    android:text="@string/save"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp"/>
-
-                <View style="@style/LineStyle"/>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <CheckBox
-                        android:id="@+id/checkbox"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:checked="@{student.isAdult}"
-                        android:onCheckedChanged="@{(button, b) -> mainPresenter.changeUserIsAdult(context, student,  b)}"/>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center_vertical"
-                        android:background="@android:color/holo_blue_light"
-                        android:gravity="center"
-                        android:text="@string/observable"
-                        android:textColor="@android:color/black"
-                        android:visibility="@{student.isAdult ? View.VISIBLE : View.INVISIBLE}"/>
-
-                </LinearLayout>
-
-                <include
-                    layout="@layout/view_include"
-                    bind:student="@{student}"/>
-            </LinearLayout>
-        </android.support.v4.widget.NestedScrollView>
+        </LinearLayout>
     </LinearLayout>
 </layout>

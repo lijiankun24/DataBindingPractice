@@ -1,23 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
+    <data class="com.lijiankun24.databindingpractice.layout.ActivityLayoutBinding">
+
+        <import type="com.lijiankun24.databindingpractice.common.util.NetworkUtil"/>
+
+        <import
+            alias="androidView"
+            type="android.view.View"/>
+
+        <variable
+            name="isNull"
+            type="String"/>
 
         <variable
             name="course"
             type="com.lijiankun24.databindingpractice.common.model.Course"/>
+
+        <variable
+            name="student"
+            type="com.lijiankun24.databindingpractice.common.model.Student"/>
+
+        <variable
+            name="layoutPresenter"
+            type="com.lijiankun24.databindingpractice.layout.LayoutPresenter"/>
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:context="com.lijiankun24.databindingpractice.layout.LayoutActivity">
 
         <include
             android:id="@+id/include_toolbar"
             layout="@layout/view_toolbar"/>
 
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/SubTextViewStyle"
+                    android:text="@string/layout_files_details"/>
+
+                <View style="@style/LineStyle"/>
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:text="@{@string/layout_course_name(course.name)}"/>
+
+                <View style="@style/LineStyle"/>
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:text="@{@string/layout_course_time(course.time)}"/>
+
+                <View style="@style/LineStyle"/>
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:text="@{@string/layout_course_teacher(course.teacher)}"/>
+
+                <View style="@style/LineStyle"/>
+
+                <TextView
+                    style="@style/SubTextViewStyle"
+                    android:text="@string/layout_method_references_title"/>
+
+                <View style="@style/LineStyle"/>
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:onClick="@{layoutPresenter::showMethodReferences}"
+                    android:text="@string/layout_method_references"/>
+
+                <View style="@style/LineStyle"/>
+
+                <TextView
+                    style="@style/SubTextViewStyle"
+                    android:text="@string/layout_listener_bindings_title"/>
+
+                <View style="@style/LineStyle"/>
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:onClick="@{(view) -> layoutPresenter.showListenerBindings(view)}"
+                    android:text="@string/layout_listener_bindings"/>
+
+                <View
+                    style="@style/LineStyle"/>
+
+                <TextView
+                    style="@style/SubTextViewStyle"
+                    android:text="@string/layout_include_title"/>
+
+                <View style="@style/LineStyle"/>
+
+                <include
+                    layout="@layout/view_include"
+                    bind:student="@{student}"/>
+
+                <View style="@style/LineStyle"/>
+
+                <TextView
+                    style="@style/SubTextViewStyle"
+                    android:text="@string/layout_other_title"/>
+
+                <View style="@style/LineStyle"/>
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:onClick="@{(view) -> NetworkUtil.showNetworkInfo(context)}"
+                    android:text="@string/layout_other_import"/>
+
+                <View style="@style/LineStyle"/>
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:text="@string/layout_other_import1"
+                    android:visibility="@{student.isAdult ? androidView.VISIBLE : androidView.GONE}"/>
+
+                <View style="@style/LineStyle"/>
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:text="@{@string/layout_other_res(student.name, student.age)}"/>
+
+                <View style="@style/LineStyle"/>
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:background="@{@color/yellow}"
+                    android:text="@{@string/layout_other_res1}"/>
+
+                <View style="@style/LineStyle"/>
+
+                <TextView
+                    style="@style/TextViewStyle"
+                    android:text="@{isNull ?? @string/layout_other_res2}"/>
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
     </LinearLayout>
 </layout>

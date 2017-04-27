@@ -1,12 +1,9 @@
 package com.lijiankun24.databindingpractice.main;
 
 import android.content.Context;
-import android.view.View;
 
 import com.lijiankun24.databindingpractice.common.base.BasePresenter;
 import com.lijiankun24.databindingpractice.common.base.BaseView;
-import com.lijiankun24.databindingpractice.common.model.Course;
-import com.lijiankun24.databindingpractice.common.model.Student;
 
 /**
  * MainContract.java
@@ -16,19 +13,20 @@ import com.lijiankun24.databindingpractice.common.model.Student;
 
 interface MainContract {
 
-    interface MainPresenter extends BasePresenter {
-        void saveCourse(View view, Course course);
+    interface Presenter extends BasePresenter {
 
-        void changeUserIsAdult(Context context, Student student, boolean isAdult);
+        void toLayoutActivity();
 
-        void toLayoutActivity(Context context);
+        void toObservableActivity();
 
-        void toObservableActivity(Context context);
-
-        void toRecyclerViewActivity(Context context);
+        void toRecyclerViewActivity();
     }
 
-    interface MainView extends BaseView<MainPresenter> {
+    interface View extends BaseView<MainPresenter> {
+        void toLayoutActivity();
 
+        void toObservableActivity();
+
+        void toRecyclerViewActivity();
     }
 }
