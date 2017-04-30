@@ -1,4 +1,4 @@
-package com.lijiankun24.databindingpractice.common.model;
+package com.lijiankun24.databindingpractice.data.model;
 
 import android.databinding.ObservableBoolean;
 import android.databinding.ObservableField;
@@ -15,14 +15,14 @@ public class Student {
 
     public final int age;
 
-    public final ObservableField<String> mobileNum;
+    public final ObservableField<String> mobile;
 
-    public ObservableBoolean isAdult;
+    public final ObservableBoolean isAdult;
 
-    public Student(String name, int age, String mobileNum, boolean isAdult) {
+    public Student(String name, int age, String mobile, boolean isAdult) {
         this.name = name;
         this.age = age;
-        this.mobileNum = new ObservableField<>(mobileNum);
+        this.mobile = new ObservableField<>(mobile);
         this.isAdult = new ObservableBoolean(isAdult);
     }
 }

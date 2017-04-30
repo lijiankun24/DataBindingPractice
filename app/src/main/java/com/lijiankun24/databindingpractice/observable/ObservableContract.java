@@ -1,13 +1,9 @@
 package com.lijiankun24.databindingpractice.observable;
 
-import android.databinding.ObservableArrayList;
-import android.view.View;
-
 import com.lijiankun24.databindingpractice.common.base.BasePresenter;
 import com.lijiankun24.databindingpractice.common.base.BaseView;
-import com.lijiankun24.databindingpractice.common.model.Student;
-
-import java.util.List;
+import com.lijiankun24.databindingpractice.data.model.ObservableTeacher;
+import com.lijiankun24.databindingpractice.data.model.Student;
 
 /**
  * MainContract.java
@@ -16,13 +12,26 @@ import java.util.List;
  */
 interface ObservableContract {
 
-    interface ObservablePresenter extends BasePresenter {
-        void changeText(View view, List<String> stringList);
+    interface Presenter extends BasePresenter {
 
-        void changeText(ObservableArrayList<Student> studentObservableList);
+        void initData();
+
+        void loadStudent();
+
+        void loadObservableTeacher();
+
+        void changeStudentIsAdult(boolean isAdult, Student student);
+
+        void changeStudentMobile(String mobile);
     }
 
-    interface ObservableView extends BaseView<ObservablePresenter> {
+    interface View extends BaseView<Presenter> {
+
+        void initListeners();
+
+        void showStudent(Student student);
+
+        void showObservableTeacher(ObservableTeacher observableTeacher);
     }
 }
 

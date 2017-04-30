@@ -6,7 +6,7 @@
 
         <variable
             name="student"
-            type="com.lijiankun24.databindingpractice.common.model.Student"/>
+            type="com.lijiankun24.databindingpractice.data.model.Student"/>
 
         <import type="java.lang.String"/>
     </data>

@@ -4,8 +4,8 @@ import android.databinding.ViewDataBinding;
 
 import com.lijiankun24.databindingpractice.R;
 import com.lijiankun24.databindingpractice.common.base.BaseActivity;
-import com.lijiankun24.databindingpractice.common.model.Course;
-import com.lijiankun24.databindingpractice.common.model.Student;
+import com.lijiankun24.databindingpractice.data.model.Course;
+import com.lijiankun24.databindingpractice.data.model.Student;
 import com.lijiankun24.databindingpractice.common.util.Toaster;
 
 /**

@@ -1,4 +1,4 @@
-package com.lijiankun24.databindingpractice.common.model;
+package com.lijiankun24.databindingpractice.data.model;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;

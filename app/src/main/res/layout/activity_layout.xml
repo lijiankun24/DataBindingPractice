@@ -18,11 +18,11 @@
 
         <variable
             name="course"
-            type="com.lijiankun24.databindingpractice.common.model.Course"/>
+            type="com.lijiankun24.databindingpractice.data.model.Course"/>
 
         <variable
             name="student"
-            type="com.lijiankun24.databindingpractice.common.model.Student"/>
+            type="com.lijiankun24.databindingpractice.data.model.Student"/>
 
         <variable
             name="layoutPresenter"

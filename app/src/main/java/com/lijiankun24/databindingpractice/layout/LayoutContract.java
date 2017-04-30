@@ -2,8 +2,8 @@ package com.lijiankun24.databindingpractice.layout;
 
 import com.lijiankun24.databindingpractice.common.base.BasePresenter;
 import com.lijiankun24.databindingpractice.common.base.BaseView;
-import com.lijiankun24.databindingpractice.common.model.Course;
-import com.lijiankun24.databindingpractice.common.model.Student;
+import com.lijiankun24.databindingpractice.data.model.Course;
+import com.lijiankun24.databindingpractice.data.model.Student;
 
 /**
  * LayoutContract.java
