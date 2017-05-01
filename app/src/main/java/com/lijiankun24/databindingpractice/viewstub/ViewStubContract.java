@@ -9,7 +9,7 @@ import com.lijiankun24.databindingpractice.common.base.BaseView;
  * Created by lijiankun on 17/5/1.
  */
 
-public class ViewStubContract {
+public interface ViewStubContract {
 
     interface Presenter extends BasePresenter{
         void showClickToast();
