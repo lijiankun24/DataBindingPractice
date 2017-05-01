@@ -11,7 +11,7 @@ import com.lijiankun24.databindingpractice.data.model.Student;
  * Created by lijiankun on 17/4/26.
  */
 
-public interface LayoutContract {
+interface LayoutContract {
 
     interface Presenter extends BasePresenter {
         void loadCourse();

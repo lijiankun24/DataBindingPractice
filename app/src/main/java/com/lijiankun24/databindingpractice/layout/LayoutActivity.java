@@ -4,9 +4,9 @@ import android.databinding.ViewDataBinding;
 
 import com.lijiankun24.databindingpractice.R;
 import com.lijiankun24.databindingpractice.common.base.BaseActivity;
+import com.lijiankun24.databindingpractice.common.util.Toaster;
 import com.lijiankun24.databindingpractice.data.model.Course;
 import com.lijiankun24.databindingpractice.data.model.Student;
-import com.lijiankun24.databindingpractice.common.util.Toaster;
 
 /**
  * LayoutActivity.java
@@ -57,11 +57,7 @@ public class LayoutActivity extends BaseActivity implements LayoutContract.View 
 
     @Override
     public void initView() {
-        setSupportActionBar(mBinding.includeToolbar.toolbar);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setTitle(R.string.layout_activity_title);
-        }
+        initToolbar(mBinding.includeToolbar.toolbar, true, R.string.layout_activity_title);
     }
 
     @Override

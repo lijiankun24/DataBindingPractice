@@ -4,9 +4,8 @@ import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-
-import com.lijiankun24.databindingpractice.layout.LayoutActivity;
 
 /**
  * BaseActivity, getLayoutId and initControls is important.
@@ -23,12 +22,22 @@ public abstract class BaseActivity extends AppCompatActivity {
             if (mBinding != null) {
                 initControls(mBinding);
             }
+
         }
     }
 
     protected abstract int getLayoutId();
 
     protected abstract void initControls(ViewDataBinding binding);
+
+    protected void initToolbar(Toolbar toolbar, boolean setDisplayHomeAsUpEnabled, int resId) {
+
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(setDisplayHomeAsUpEnabled);
+            getSupportActionBar().setTitle(resId);
+        }
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

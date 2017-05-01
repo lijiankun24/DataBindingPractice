@@ -17,12 +17,9 @@ public class GirlsLocalDataSource implements GirlsDataSource {
 
     private static GirlsLocalDataSource INSTANCE;
 
-    private Context mContext;
-
     // Prevent direct instantiation.
     private GirlsLocalDataSource(@NonNull Context context) {
         checkNotNull(context);
-        mContext = context;
     }
 
     public static GirlsLocalDataSource getInstance(@NonNull Context context) {

@@ -13,7 +13,7 @@ import com.lijiankun24.databindingpractice.viewstub.ViewStubActivity;
 
 public class MainActivity extends BaseActivity implements MainContract.View {
 
-    private ActivityMainBinding mMainBinding = null;
+    private ActivityMainBinding mBinding = null;
 
     @Override
     protected int getLayoutId() {
@@ -23,19 +23,19 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     @Override
     protected void initControls(ViewDataBinding binding) {
         if (binding instanceof ActivityMainBinding) {
-            mMainBinding = (ActivityMainBinding) binding;
+            mBinding = (ActivityMainBinding) binding;
             new MainPresenter(this);
         }
     }
 
     @Override
     public void initView() {
-        mMainBinding.includeToolbar.toolbar.setTitle(R.string.app_name);
+        initToolbar(mBinding.includeToolbar.toolbar, false, R.string.app_name);
     }
 
     @Override
     public void setPresenter(MainPresenter presenter) {
-        mMainBinding.setMainPresenter(presenter);
+        mBinding.setMainPresenter(presenter);
     }
 
     @Override

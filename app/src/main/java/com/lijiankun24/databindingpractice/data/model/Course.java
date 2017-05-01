@@ -7,6 +7,7 @@ package com.lijiankun24.databindingpractice.data.model;
  */
 
 public class Course {
+
     public final String name;
 
     public final String time;

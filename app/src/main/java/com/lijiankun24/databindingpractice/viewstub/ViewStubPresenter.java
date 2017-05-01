@@ -8,15 +8,7 @@ package com.lijiankun24.databindingpractice.viewstub;
 
 public class ViewStubPresenter implements ViewStubContract.Presenter {
 
-    private ViewStubContract.View mView = null;
-
-    public ViewStubPresenter(ViewStubContract.View view) {
-        mView = view;
-        mView.initView();
-    }
-
-    @Override
-    public void showClickToast() {
-        mView.showClickToast();
+    ViewStubPresenter(ViewStubContract.View view) {
+        view.initView();
     }
 }

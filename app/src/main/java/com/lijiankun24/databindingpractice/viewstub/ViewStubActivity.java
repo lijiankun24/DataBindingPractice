@@ -28,11 +28,7 @@ public class ViewStubActivity extends BaseActivity implements ViewStubContract.V
 
     @Override
     public void initView() {
-        setSupportActionBar(mBinding.includeToolbar.toolbar);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setTitle(R.string.viewstub_activity_title);
-        }
+        initToolbar(mBinding.includeToolbar.toolbar, true, R.string.viewstub_activity_title);
 
         mBinding.viewStub.setOnInflateListener((viewStub, view) -> {
             LayoutViewStubBinding mStubBinding = DataBindingUtil.findBinding(view);

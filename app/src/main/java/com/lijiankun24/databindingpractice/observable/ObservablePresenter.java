@@ -25,7 +25,7 @@ public class ObservablePresenter implements ObservableContract.Presenter {
 
     private ObservableList<String> mObservableList = null;
 
-    public ObservablePresenter(ObservableContract.View view) {
+    ObservablePresenter(ObservableContract.View view) {
         mView = view;
         mView.initView();
         mView.initListeners();

@@ -43,20 +43,16 @@ public class RecyclerViewActivity extends BaseActivity implements RecyclerViewCo
         mAdapter.setGirls(girls);
     }
 
+    @Override
+    public void initView() {
+        initToolbar(mBinding.includeToolbar.toolbar, true, R.string.recyclerview_activity_title);
+        initDataBindingParams();
+    }
+
     private void initDataBindingParams() {
         mLayoutManager = new LinearLayoutManager(RecyclerViewActivity.this);
         mBinding.setRecyclerViewActivity(RecyclerViewActivity.this);
         mAdapter = new CustomRecyclerViewAdapter(RecyclerViewActivity.this);
         mBinding.rv.setAdapter(mAdapter);
-    }
-
-    @Override
-    public void initView() {
-        setSupportActionBar(mBinding.includeToolbar.toolbar);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setTitle(R.string.recyclerview_activity_title);
-        }
-        initDataBindingParams();
     }
 }

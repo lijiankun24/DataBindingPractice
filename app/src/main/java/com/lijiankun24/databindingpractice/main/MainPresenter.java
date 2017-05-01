@@ -10,7 +10,7 @@ public class MainPresenter implements MainContract.Presenter {
 
     private MainContract.View mView = null;
 
-    public MainPresenter(MainContract.View view) {
+    MainPresenter(MainContract.View view) {
         mView = view;
         mView.initView();
         mView.setPresenter(this);

@@ -34,11 +34,7 @@ public class ObservableActivity extends BaseActivity implements ObservableContra
 
     @Override
     public void initView() {
-        setSupportActionBar(mBinding.includeToolbar.toolbar);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setTitle(R.string.observable_activity_title);
-        }
+        initToolbar(mBinding.includeToolbar.toolbar, true, R.string.observable_activity_title);
     }
 
     @Override

@@ -1,7 +1,5 @@
 package com.lijiankun24.databindingpractice.main;
 
-import android.content.Context;
-
 import com.lijiankun24.databindingpractice.common.base.BasePresenter;
 import com.lijiankun24.databindingpractice.common.base.BaseView;
 

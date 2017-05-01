@@ -2,7 +2,6 @@ package com.lijiankun24.databindingpractice.observable;
 
 import android.databinding.ObservableArrayMap;
 import android.databinding.ObservableList;
-import android.databinding.ObservableMap;
 
 import com.lijiankun24.databindingpractice.common.base.BasePresenter;
 import com.lijiankun24.databindingpractice.common.base.BaseView;
