@@ -47,6 +47,12 @@
 
             <View style="@style/LineStyle"/>
 
+            <TextView
+                style="@style/TextViewStyle"
+                android:onClick="@{() -> mainPresenter.toViewStubActivity()}"
+                android:text="@{@string/to_viewstub_activity}"/>
+
+            <View style="@style/LineStyle"/>
         </LinearLayout>
     </LinearLayout>
 </layout>

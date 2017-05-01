@@ -4,13 +4,6 @@
     <color name="colorPrimaryDark">#1976D2</color>
     <color name="colorAccent">#448AFF</color>
 
-    <!-- yellow begin -->
-    <color name="yellow">#FFFF00</color>
-    <color name="lightGoldenrodYellow">#FAFAD2</color>
-    <color name="lightYellow">#FFFF90</color>
-    <color name="ivory">#FFFFF0</color>
-    <!-- yellow end -->
-
     <!-- grey begin -->
     <color name="lightGrey">#D3D3D3</color>
     <!-- grey begin -->

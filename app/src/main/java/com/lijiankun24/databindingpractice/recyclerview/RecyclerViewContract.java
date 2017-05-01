@@ -13,11 +13,11 @@ import java.util.List;
  */
 interface RecyclerViewContract {
 
-    interface RecyclerViewPresenter extends BasePresenter {
+    interface Presenter extends BasePresenter {
         void loadDatas();
     }
 
-    interface RecyclerViewView extends BaseView<RecyclerViewPresenter> {
+    interface View extends BaseView<Presenter> {
         void showDatas(List<Girl> girls);
     }
 }

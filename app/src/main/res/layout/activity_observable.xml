@@ -1,42 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:add="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
-        <!--<import type="java.util.List"/>-->
-
-        <!--<import type="android.databinding.ObservableArrayList"/>-->
-
-        <!--<import type="android.databinding.ObservableField"/>-->
-
-        <!--<import type="java.lang.String"/>-->
-
         <import type="android.view.View"/>
 
-        <!--<import type="com.lijiankun24.databindingpractice.common.model.Student"/>-->
+        <import type="android.databinding.ObservableMap"/>
 
-        <!--<variable-->
-        <!--name="nameList"-->
-        <!--type="List&lt;String>"/>-->
-
-        <!--<variable-->
-        <!--name="studentList"-->
-        <!--type="ObservableArrayList&lt;Student>"/>-->
-
-        <!--<variable-->
-        <!--name="observableText"-->
-        <!--type="ObservableField&lt;String>"/>-->
-
-        <!--<variable-->
-        <!--name="observablePresenter"-->
-        <!--type="com.lijiankun24.databindingpractice.observable.ObservablePresenter"/>-->
-
-        <!--<variable-->
-        <!--name="observableTeacher"-->
-        <!--type="com.lijiankun24.databindingpractice.common.model.ObservableTeacher"/>-->
+        <import type="android.databinding.ObservableList"/>
 
         <variable
             name="observablePresenter"
@@ -49,6 +23,14 @@
         <variable
             name="observableTeacher"
             type="com.lijiankun24.databindingpractice.data.model.ObservableTeacher"/>
+
+        <variable
+            name="observableMap"
+            type="ObservableMap&lt;String, Object>"/>
+
+        <variable
+            name="observableList"
+            type="ObservableList&lt;String>"/>
     </data>
 
     <LinearLayout
@@ -81,9 +63,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_gravity="center_vertical"
-                android:background="@android:color/holo_blue_light"
+                android:background="@{@android:color/holo_blue_light}"
                 android:gravity="center"
-                android:text="@string/observable"
+                android:text="@string/observable_fields"
                 android:textColor="@android:color/black"
                 android:visibility="@{student.isAdult ? View.VISIBLE : View.INVISIBLE}"/>
 
@@ -91,35 +73,16 @@
 
         <View style="@style/LineStyle"/>
 
-        <!--<TextView-->
-        <!--android:id="@+id/tv_list"-->
-        <!--style="@style/TextViewStyle"-->
-        <!--android:background="@android:color/holo_green_light"-->
-        <!--android:hint="@string/observable_click"-->
-        <!--android:onClick="@{(view) -> observablePresenter.changeText(view, nameList)}"/>-->
-
-        <!--<View style="@style/LineStyle"/>-->
-
-        <!--<TextView-->
-        <!--android:id="@+id/tv_string"-->
-        <!--style="@style/TextViewStyle"-->
-        <!--android:background="@android:color/holo_green_light"-->
-        <!--android:hint="@string/observable_click"-->
-        <!--android:onClick="@{(view) -> observablePresenter.changeText(studentList)}"-->
-        <!--android:text="@{String.format(@string/observable_list2, studentList.get(0).name, studentList.get(0).age)}"/>-->
-
-        <!--<View style="@style/LineStyle"/>-->
-
         <EditText
             android:id="@+id/et_student_mobile"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:hint="@string/observable_input_mobile_hint"/>
+            android:hint="@string/observable_input_mobile_hint"
+            android:text="@{student.mobile.get()}"/>
 
         <View style="@style/LineStyle"/>
 
         <TextView
-            android:id="@+id/tv_student_mobile"
             style="@style/TextViewStyle"
             android:text="@{String.format(@string/observable_student_mobile, student.mobile)}"/>
 
@@ -132,7 +95,24 @@
         <include
             android:id="@+id/include_view1"
             layout="@layout/view_include1"
-            bind:observableTeacher="@{observableTeacher}"/>
+            add:observableTeacher="@{observableTeacher}"/>
 
+        <TextView
+            style="@style/SubTextViewStyle"
+            android:text="@string/observable_observable_collections_title"/>
+
+        <View style="@style/LineStyle"/>
+
+        <TextView
+            style="@style/TextViewStyle"
+            android:text='@{@string/observable_observable_collections_map(observableMap["firstName"])}'/>
+
+        <View style="@style/LineStyle"/>
+
+        <TextView
+            style="@style/TextViewStyle"
+            android:text='@{@string/observable_observable_collections_list(observableList[0])}'/>
+
+        <View style="@style/LineStyle"/>
     </LinearLayout>
 </layout>

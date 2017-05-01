@@ -16,18 +16,18 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Created by lijiankun on 17/4/25.
  */
 
-class RecyclerViewPresenter implements RecyclerViewContract.RecyclerViewPresenter {
+class RecyclerViewPresenter implements RecyclerViewContract.Presenter {
 
-    private final RecyclerViewContract.RecyclerViewView mView;
+    private final RecyclerViewContract.View mView;
 
     private final GirlsRepository mRepository;
 
-    RecyclerViewPresenter(@NonNull RecyclerViewContract.RecyclerViewView view,
+    RecyclerViewPresenter(@NonNull RecyclerViewContract.View view,
                                  @NonNull GirlsRepository repository) {
         mView = checkNotNull(view, "recyclerViewView cannot be null");
         mRepository = checkNotNull(repository, "girlsRepository cannot be null");
-
         mView.setPresenter(this);
+        mView.initView();
     }
 
     @Override

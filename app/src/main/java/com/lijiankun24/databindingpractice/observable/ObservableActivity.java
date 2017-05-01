@@ -1,5 +1,7 @@
 package com.lijiankun24.databindingpractice.observable;
 
+import android.databinding.ObservableArrayMap;
+import android.databinding.ObservableList;
 import android.databinding.ViewDataBinding;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -16,14 +18,6 @@ public class ObservableActivity extends BaseActivity implements ObservableContra
 
     private ObservablePresenter mObservablePresenter = null;
 
-//    private List<String> mStrinigList = null;
-//
-//    private ObservableArrayList<Student> mStudentList = null;
-//
-//    private ObservableTeacher mTeacher = null;
-//
-//    private ObservableField<String> mObservableText = null;
-
     @Override
     protected int getLayoutId() {
         return R.layout.activity_observable;
@@ -35,8 +29,6 @@ public class ObservableActivity extends BaseActivity implements ObservableContra
             mBinding = (ActivityObservableBinding) binding;
             mObservablePresenter = new ObservablePresenter(this);
             mObservablePresenter.initData();
-//            initView();
-//            initDataBindingParams();
         }
     }
 
@@ -51,7 +43,24 @@ public class ObservableActivity extends BaseActivity implements ObservableContra
 
     @Override
     public void initListeners() {
-        mBinding.etStudentMobile.addTextChangedListener(new CustomTextWatcher());
+        mBinding.etStudentMobile.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence sequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence sequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                mObservablePresenter.changeStudentMobile(mBinding.etStudentMobile.getText().toString().trim());
+            }
+        });
+        mBinding.includeView1.etName.addTextChangedListener(new CustomTextWatcher());
+        mBinding.includeView1.etAge.addTextChangedListener(new CustomTextWatcher());
     }
 
     @Override
@@ -69,69 +78,14 @@ public class ObservableActivity extends BaseActivity implements ObservableContra
         mBinding.setObservableTeacher(observableTeacher);
     }
 
-    //        private void initDataBindingParams() {
-//        setUpData();
-//        mBinding.setObservablePresenter(new ObservablePresenter());
-//        if (mTeacher != null) {
-//            mBinding.setObservableTeacher(mTeacher);
-//        }
-//        if (mStrinigList != null) {
-//            mBinding.setNameList(mStrinigList);
-//        }
-//        if (mStudentList != null) {
-//            mBinding.setStudentList(mStudentList);
-//        }
-//        if (mObservableText != null) {
-//            mBinding.setObservableText(mObservableText);
-//        }
-//    }
-//
-//    private void setUpData() {
-//        mStrinigList = new ArrayList<>();
-//        for (int i = 0; i < 10; i++) {
-//            mStrinigList.add("Mr " + i);
-//        }
-//
-//        mStudentList = new ObservableArrayList<>();
-//        mStudentList.add(new Student("Num 0", 0, "" + 0, false));
-//
-//        mTeacher = new ObservableTeacher("Mrs Li", "24");
-//
-//        mObservableText = new ObservableField<>();
-//    }
-//
-//    private void initView() {
-//        setSupportActionBar(mBinding.includeToolbar.toolbar);
-//        if (getSupportActionBar() != null) {
-//            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//            getSupportActionBar().setTitle(R.string.observable_activity_title);
-//        }
-//
-//        mBinding.includeView1.etName.addTextChangedListener(new MyAction());
-//        mBinding.includeView1.etAge.addTextChangedListener(new MyAction());
-//        mBinding.etText.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence sequence, int i, int i1, int i2) {
-//
-//            }
-//
-//            @Override
-//            public void onTextChanged(CharSequence sequence, int i, int i1, int i2) {
-//
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable editable) {
-//                mObservableText.set(editable.toString());
-//            }
-//        });
-//    }
-//
+    @Override
+    public void showObservableMap(ObservableArrayMap<String, Object> map) {
+        mBinding.setObservableMap(map);
+    }
 
-    private void handleInputData() {
-        if (mObservablePresenter != null) {
-            mObservablePresenter.changeStudentMobile(mBinding.etStudentMobile.getText().toString().trim());
-        }
+    @Override
+    public void showObservableList(ObservableList<String> list) {
+        mBinding.setObservableList(list);
     }
 
     private class CustomTextWatcher implements TextWatcher {
@@ -148,7 +102,10 @@ public class ObservableActivity extends BaseActivity implements ObservableContra
 
         @Override
         public void afterTextChanged(Editable editable) {
-            handleInputData();
+            if (mObservablePresenter != null) {
+                mObservablePresenter.changeTeacherNameAndAge(mBinding.includeView1.etName.getText().toString().trim(),
+                        mBinding.includeView1.etAge.getText().toString().trim());
+            }
         }
     }
 }

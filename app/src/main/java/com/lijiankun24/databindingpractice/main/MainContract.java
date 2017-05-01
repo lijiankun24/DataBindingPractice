@@ -20,6 +20,8 @@ interface MainContract {
         void toObservableActivity();
 
         void toRecyclerViewActivity();
+
+        void toViewStubActivity();
     }
 
     interface View extends BaseView<MainPresenter> {
@@ -28,5 +30,7 @@ interface MainContract {
         void toObservableActivity();
 
         void toRecyclerViewActivity();
+
+        void toViewStubActivity();
     }
 }

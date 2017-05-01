@@ -7,10 +7,6 @@
         <variable
             name="observableTeacher"
             type="com.lijiankun24.databindingpractice.data.model.ObservableTeacher"/>
-
-        <import type="java.lang.String"/>
-
-        <import type="java.lang.Integer"/>
     </data>
 
     <LinearLayout
@@ -25,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:hint="@string/observable_input_name_hint"
-            android:text="@{observableTeacher.name}"/>
+            android:text="@{observableTeacher.getName()}"/>
 
         <View style="@style/LineStyle"/>
 
@@ -33,24 +29,20 @@
             android:id="@+id/et_age"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:hint="@string/include_input_age"
-            android:text="@{observableTeacher.age}"/>
+            android:hint="@string/observable_input_age_hint"
+            android:text="@{observableTeacher.getAge()}"/>
 
         <View style="@style/LineStyle"/>
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:gravity="center"
-            android:text="@{String.format(@string/include_observable_name, observableTeacher.name)}"/>
+            style="@style/TextViewStyle"
+            android:text="@{@string/observable_observable_name(observableTeacher.name)}"/>
 
         <View style="@style/LineStyle"/>
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:gravity="center"
-            android:text="@{String.format(@string/include_observable_age, observableTeacher.age)}"/>
+            style="@style/TextViewStyle"
+            android:text="@{@string/observable_observable_age(observableTeacher.age)}"/>
 
         <View style="@style/LineStyle"/>
     </LinearLayout>

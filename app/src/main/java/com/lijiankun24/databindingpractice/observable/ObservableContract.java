@@ -1,5 +1,9 @@
 package com.lijiankun24.databindingpractice.observable;
 
+import android.databinding.ObservableArrayMap;
+import android.databinding.ObservableList;
+import android.databinding.ObservableMap;
+
 import com.lijiankun24.databindingpractice.common.base.BasePresenter;
 import com.lijiankun24.databindingpractice.common.base.BaseView;
 import com.lijiankun24.databindingpractice.data.model.ObservableTeacher;
@@ -20,9 +24,15 @@ interface ObservableContract {
 
         void loadObservableTeacher();
 
+        void loadObservableMap();
+
+        void loadObservableList();
+
         void changeStudentIsAdult(boolean isAdult, Student student);
 
         void changeStudentMobile(String mobile);
+
+        void changeTeacherNameAndAge(String name, String age);
     }
 
     interface View extends BaseView<Presenter> {
@@ -32,6 +42,10 @@ interface ObservableContract {
         void showStudent(Student student);
 
         void showObservableTeacher(ObservableTeacher observableTeacher);
+
+        void showObservableMap(ObservableArrayMap<String, Object> map);
+
+        void showObservableList(ObservableList<String> list);
     }
 }
 

@@ -9,6 +9,7 @@ import com.lijiankun24.databindingpractice.databinding.ActivityMainBinding;
 import com.lijiankun24.databindingpractice.layout.LayoutActivity;
 import com.lijiankun24.databindingpractice.observable.ObservableActivity;
 import com.lijiankun24.databindingpractice.recyclerview.RecyclerViewActivity;
+import com.lijiankun24.databindingpractice.viewstub.ViewStubActivity;
 
 public class MainActivity extends BaseActivity implements MainContract.View {
 
@@ -50,5 +51,10 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     @Override
     public void toRecyclerViewActivity() {
         startActivity(new Intent(MainActivity.this, RecyclerViewActivity.class));
+    }
+
+    @Override
+    public void toViewStubActivity() {
+        startActivity(new Intent(MainActivity.this, ViewStubActivity.class));
     }
 }

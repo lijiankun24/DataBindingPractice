@@ -1,5 +1,9 @@
 package com.lijiankun24.databindingpractice.observable;
 
+import android.databinding.ObservableArrayList;
+import android.databinding.ObservableArrayMap;
+import android.databinding.ObservableList;
+
 import com.lijiankun24.databindingpractice.data.model.ObservableTeacher;
 import com.lijiankun24.databindingpractice.data.model.Student;
 
@@ -15,6 +19,12 @@ public class ObservablePresenter implements ObservableContract.Presenter {
 
     private Student mStudent = null;
 
+    private ObservableTeacher mObservableTeacher = null;
+
+    private ObservableArrayMap<String, Object> mObservableMap = null;
+
+    private ObservableList<String> mObservableList = null;
+
     public ObservablePresenter(ObservableContract.View view) {
         mView = view;
         mView.initView();
@@ -25,8 +35,18 @@ public class ObservablePresenter implements ObservableContract.Presenter {
     @Override
     public void initData() {
         mStudent = new Student("lijiankun24", 24, "18810554454", true);
+        mObservableTeacher = new ObservableTeacher("Mrs Li", "24");
+        mObservableMap = new ObservableArrayMap<>();
+        mObservableMap.put("firstName", "Google");
+        mObservableMap.put("lastName", "Baidu");
+        mObservableList = new ObservableArrayList<>();
+        mObservableList.add("item1");
+        mObservableList.add("item2");
+        mObservableList.add("item3");
         this.loadStudent();
         this.loadObservableTeacher();
+        this.loadObservableMap();
+        this.loadObservableList();
     }
 
     @Override
@@ -36,44 +56,37 @@ public class ObservablePresenter implements ObservableContract.Presenter {
 
     @Override
     public void loadObservableTeacher() {
-        ObservableTeacher teacher = new ObservableTeacher("Mrs Li", "24");
-        mView.showObservableTeacher(teacher);
+        mView.showObservableTeacher(mObservableTeacher);
     }
 
     @Override
     public void changeStudentIsAdult(boolean isAdult, Student student) {
-        if (student != null) {
-            student.isAdult.set(isAdult);
+        if (student == null) {
+            return;
         }
+        student.isAdult.set(isAdult);
     }
 
     @Override
     public void changeStudentMobile(String mobile) {
-        if (mStudent != null) {
-            mStudent.mobile.set(mobile);
+        mStudent.mobile.set(mobile);
+    }
+
+    @Override
+    public void changeTeacherNameAndAge(String name, String age) {
+        if (mObservableTeacher != null) {
+            mObservableTeacher.setName(name);
+            mObservableTeacher.setAge(age);
         }
     }
 
-    //    private int index = -1;
-//
-//    private int studentNum = 1;
-//
-//    @Override
-//    public void changeText(View view, List<String> stringList) {
-//        if (stringList.size() <= 0) {
-//            return;
-//        }
-//
-//        index = index < 0 ? (stringList.size() - 1) : index;
-//        if (index >= 0 && view instanceof TextView) {
-//            TextView textView = ((TextView) view);
-//            textView.setText(view.getContext().getString(R.string.observable_list1, index, stringList.get(index--)));
-//        }
-//    }
-//
-//    @Override
-//    public void changeText(ObservableArrayList<Student> studentObservableList) {
-//        studentObservableList.add(0, new Student("Num " + studentNum, studentNum, "PhoneNum " + studentNum, false));
-//        studentNum++;
-//    }
+    @Override
+    public void loadObservableMap() {
+        mView.showObservableMap(mObservableMap);
+    }
+
+    @Override
+    public void loadObservableList() {
+        mView.showObservableList(mObservableList);
+    }
 }

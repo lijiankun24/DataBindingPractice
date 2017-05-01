@@ -11,7 +11,7 @@ import com.lijiankun24.databindingpractice.databinding.ActivityRecyclerViewBindi
 
 import java.util.List;
 
-public class RecyclerViewActivity extends BaseActivity implements RecyclerViewContract.RecyclerViewView {
+public class RecyclerViewActivity extends BaseActivity implements RecyclerViewContract.View {
 
     private ActivityRecyclerViewBinding mBinding = null;
 
@@ -28,13 +28,14 @@ public class RecyclerViewActivity extends BaseActivity implements RecyclerViewCo
     protected void initControls(ViewDataBinding binding) {
         if (binding instanceof ActivityRecyclerViewBinding) {
             mBinding = (ActivityRecyclerViewBinding) binding;
-            initView();
-            initDataBindingParams();
+            RecyclerViewPresenter presenter = new RecyclerViewPresenter(RecyclerViewActivity.this,
+                    Injection.provideGirlsRepository(RecyclerViewActivity.this));
+            presenter.loadDatas();
         }
     }
 
     @Override
-    public void setPresenter(RecyclerViewContract.RecyclerViewPresenter presenter) {
+    public void setPresenter(RecyclerViewContract.Presenter presenter) {
     }
 
     @Override
@@ -47,10 +48,6 @@ public class RecyclerViewActivity extends BaseActivity implements RecyclerViewCo
         mBinding.setRecyclerViewActivity(RecyclerViewActivity.this);
         mAdapter = new CustomRecyclerViewAdapter(RecyclerViewActivity.this);
         mBinding.rv.setAdapter(mAdapter);
-
-        RecyclerViewPresenter presenter = new RecyclerViewPresenter(RecyclerViewActivity.this,
-                Injection.provideGirlsRepository(RecyclerViewActivity.this));
-        presenter.loadDatas();
     }
 
     @Override
@@ -60,5 +57,6 @@ public class RecyclerViewActivity extends BaseActivity implements RecyclerViewCo
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setTitle(R.string.recyclerview_activity_title);
         }
+        initDataBindingParams();
     }
 }

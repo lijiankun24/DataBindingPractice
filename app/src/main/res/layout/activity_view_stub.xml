@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.lijiankun24.databindingpractice.viewstub.ViewStubActivity">
+
+    <data>
+
+        <variable
+            name="viewStubPresenter"
+            type="com.lijiankun24.databindingpractice.viewstub.ViewStubPresenter"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/include_toolbar"
+            layout="@layout/view_toolbar"/>
+
+        <TextView
+            style="@style/SubTextViewStyle"
+            android:text="@string/viewstub"/>
+
+        <View
+            style="@style/LineStyle"/>
+
+        <ViewStub
+            android:id="@+id/viewStub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout="@layout/layout_view_stub"/>
+
+        <View
+            style="@style/LineStyle"/>
+    </LinearLayout>
+</layout>

@@ -5,12 +5,7 @@
     <string name="to_layout_activity">Click to LayoutActivity</string>
     <string name="to_observable_activity">Click to ObservableActivity</string>
     <string name="to_rv_activity">Click to RecyclerViewActivity</string>
-
-
-    <string name="observable">ObservableBoolean 类的使用</string>
-    <string name="include_input_age">Input teachers age, please</string>
-    <string name="include_observable_name">ObservableTeachers name is %s</string>
-    <string name="include_observable_age">ObservableTeachers age is %s</string>
+    <string name="to_viewstub_activity">Click to ViewStubActivity</string>
     <!-- MainActivity end -->
 
     <!-- LayoutActivity begin -->
@@ -38,21 +33,31 @@
     <string name="observable_activity_title">Observable</string>
 
     <string name="observable_observable_fields_title">The following is about ObservableFields</string>
+    <string name="observable_fields">ObservableBoolean 类的使用</string>
     <string name="observable_student_mobile">The students mobile is %s</string>
     <string name="observable_input_mobile_hint">Input students mobile, please</string>
 
     <string name="observable_observable_objects_title">The following is about Observable Objects</string>
     <string name="observable_input_name_hint">Input teachers name, please</string>
+    <string name="observable_input_age_hint">Input teachers age, please</string>
+    <string name="observable_observable_name">ObservableTeachers name is %1$s</string>
+    <string name="observable_observable_age">ObservableTeachers age is %1$s</string>
 
-
-    <string name="observable_click">Click to change text</string>
-    <string name="observable_teacher_name">The teachers name is %s</string>
-    <string name="observable_list1">%1$d students name is %2$s</string>
-    <string name="observable_list2">Students name is %1$s, students age is %2$d</string>
+    <string name="observable_observable_collections_title">The following is about Observable Collections</string>
+    <string name="observable_observable_collections_map">ObservableArrayMaps value is %1$s</string>
+    <string name="observable_observable_collections_list">ObservableArrayLists value is %1$s</string>
     <!-- ObservableActivity end -->
 
     <!-- RecyclerViewActivity begin -->
     <string name="recyclerview_activity_title">RecyclerView</string>
-    <string name="avatar_url">http://7xi8d6.com1.z0.glb.clouddn.com/2017-04-24-18094714_158946097967074_5909424912493182976_n.jpg</string>
+    <string name="recyclerview_item_name">The girls name is %1$s</string>
+    <string name="recyclerview_item_from">The girls is from %1$s</string>
     <!-- RecyclerViewActivity end -->
+
+    <!-- ViewStubActivity begin -->
+    <string name="viewstub_activity_title">ViewStubActivity</string>
+    <string name="viewstub">The following is about View Stub</string>
+    <string name="viewstub_content">This is TextView from ViewStub</string>
+    <string name="viewstub_toast_content">tvViewStubs was clicked</string>
+    <!-- ViewStubActivity end -->
 </resources>

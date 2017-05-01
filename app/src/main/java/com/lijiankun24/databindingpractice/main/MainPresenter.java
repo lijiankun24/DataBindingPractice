@@ -30,4 +30,9 @@ public class MainPresenter implements MainContract.Presenter {
     public void toRecyclerViewActivity() {
         mView.toRecyclerViewActivity();
     }
+
+    @Override
+    public void toViewStubActivity() {
+        mView.toViewStubActivity();
+    }
 }

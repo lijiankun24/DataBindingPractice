@@ -140,7 +140,7 @@
 
                 <TextView
                     style="@style/TextViewStyle"
-                    android:background="@{@color/yellow}"
+                    android:background="@{@color/colorPrimary}"
                     android:text="@{@string/layout_other_res1}"/>
 
                 <View style="@style/LineStyle"/>
