@@ -1,6 +1,7 @@
 package com.lijiankun24.databindingpractice.recyclerview;
 
 import android.databinding.ViewDataBinding;
+import android.graphics.Color;
 import android.support.v7.widget.LinearLayoutManager;
 
 import com.lijiankun24.databindingpractice.R;
@@ -19,6 +20,8 @@ public class RecyclerViewActivity extends BaseActivity implements RecyclerViewCo
 
     private CustomRecyclerViewAdapter mAdapter = null;
 
+    private RecyclerViewPresenter mPresenter = null;
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_recycler_view;
@@ -28,9 +31,9 @@ public class RecyclerViewActivity extends BaseActivity implements RecyclerViewCo
     protected void initControls(ViewDataBinding binding) {
         if (binding instanceof ActivityRecyclerViewBinding) {
             mBinding = (ActivityRecyclerViewBinding) binding;
-            RecyclerViewPresenter presenter = new RecyclerViewPresenter(RecyclerViewActivity.this,
+            mPresenter = new RecyclerViewPresenter(RecyclerViewActivity.this,
                     Injection.provideGirlsRepository(RecyclerViewActivity.this));
-            presenter.loadDatas();
+            mPresenter.loadDatas();
         }
     }
 
@@ -44,6 +47,16 @@ public class RecyclerViewActivity extends BaseActivity implements RecyclerViewCo
     }
 
     @Override
+    public void showLoading() {
+        mBinding.refreshLayout.setRefreshing(true);
+    }
+
+    @Override
+    public void showLoaded() {
+        mBinding.refreshLayout.setRefreshing(false);
+    }
+
+    @Override
     public void initView() {
         initToolbar(mBinding.includeToolbar.toolbar, true, R.string.recyclerview_activity_title);
         initDataBindingParams();
@@ -54,5 +67,10 @@ public class RecyclerViewActivity extends BaseActivity implements RecyclerViewCo
         mBinding.setRecyclerViewActivity(RecyclerViewActivity.this);
         mAdapter = new CustomRecyclerViewAdapter(RecyclerViewActivity.this);
         mBinding.rv.setAdapter(mAdapter);
+        mBinding.refreshLayout.setColorSchemeColors(Color.BLUE,
+                Color.GREEN,
+                Color.YELLOW,
+                Color.RED);
+        mBinding.refreshLayout.setOnRefreshListener(() -> mPresenter.loadDatas());
     }
 }

@@ -19,7 +19,7 @@ import java.util.Map;
 
 public class GirlsRemoteDataSource implements GirlsDataSource {
 
-    private static final int SERVICE_LATENCY_IN_MILLIS = 500;
+    private static final int SERVICE_LATENCY_IN_MILLIS = 1500;
 
     private static GirlsRemoteDataSource INSTANCE = null;
 

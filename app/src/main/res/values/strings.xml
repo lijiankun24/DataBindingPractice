@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">DataBindingPractice</string>
-
+    <string name="app_introduction">This is a demo for me to practice DataBinding and I hope this demo could help you,too.  \n---- lijiankun24</string>
     <!-- MainActivity begin -->
     <string name="to_layout_activity">Click to LayoutActivity</string>
     <string name="to_observable_activity">Click to ObservableActivity</string>
@@ -60,4 +60,14 @@
     <string name="viewstub_content">This is TextView from ViewStub</string>
     <string name="viewstub_toast_content">tvViewStubs was clicked</string>
     <!-- ViewStubActivity end -->
+
+    <!-- AboutActivity begin -->
+    <string name="about">about</string>
+    <string name="about_activity_title">About</string>
+    <string name="about_contact_me">Contact Me</string>
+    <string name="about_github"><![CDATA[\t Github: <font color=\'#3F51B5\'>%s</font>]]></string>
+    <string name="about_weibo"><![CDATA[\t Weibo: <font color=\'#3F51B5\'>%s(lijiankun24)</font>]]></string>
+    <string name="about_blog"><![CDATA[\t Blog: <font color=\'#3F51B5\'>%s</font>]]></string>
+    <string name="about_mail"><![CDATA[\t Mail: <font color=\'#3F51B5\'>%s</font>]]></string>
+    <!-- AboutActivity end -->
 </resources>

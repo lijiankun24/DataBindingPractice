@@ -32,15 +32,17 @@ class RecyclerViewPresenter implements RecyclerViewContract.Presenter {
 
     @Override
     public void loadDatas() {
+        mView.showLoading();
         mRepository.getDatas(new GirlsDataSource.LoadGirlsCallback() {
             @Override
             public void onGirlsLoaded(List<Girl> girls) {
+                mView.showLoaded();
                 mView.showDatas(girls);
             }
 
             @Override
             public void onDataNotAvailable() {
-
+                mView.showLoaded();
             }
         });
     }

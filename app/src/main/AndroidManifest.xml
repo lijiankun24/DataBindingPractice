@@ -26,6 +26,8 @@
         </activity>
         <activity android:name=".viewstub.ViewStubActivity">
         </activity>
+        <activity android:name=".about.AboutActivity">
+        </activity>
     </application>
 
 </manifest>

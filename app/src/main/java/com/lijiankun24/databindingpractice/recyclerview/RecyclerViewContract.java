@@ -19,6 +19,10 @@ interface RecyclerViewContract {
 
     interface View extends BaseView<Presenter> {
         void showDatas(List<Girl> girls);
+
+        void showLoading();
+
+        void showLoaded();
     }
 }
 
